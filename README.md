@@ -10,11 +10,11 @@ helm install ui oci://public.ecr.aws/aws-containers/retail-store-sample-ui-chart
 
 helm pull oci://public.ecr.aws/aws-containers/retail-store-sample-ui-chart --version 1.6.1 --untar
 
-helm lint retail-store-sample-ui-chart
+helm lint retail-store-ui-chart
 
-helm template ui ./retail-store-sample-ui-chart
+helm template ui ./retail-store-ui-chart
 
-helm upgrade --install ui ./retail-store-sample-ui-chart -f ./retail-store-sample-ui-chart/values-ui.yaml
+helm upgrade --install ui ./retail-store-ui-chart -f ./retail-store-ui-chart/values-ui.yaml
 
 kubectl rollout restart deploy/ui -n default
 
