@@ -19,3 +19,15 @@ helm upgrade --install ui ./retail-store-ui-chart -f ./retail-store-ui-chart/val
 kubectl rollout restart deploy/ui -n default
 
 helm test ui
+
+
+aws ecr get-login-password --region "$REGION" | helm registry login -u AWS --password-stdin "$REGISTRY"
+
+aws ecr create-repository --repository-name retail-store-sample-ui-chart --region "$REGION" || true
+
+helm package ./retail-store-ui-chart
+
+helm push retail-store-sample-ui-chart-1.6.3.tgz oci://"$REGISTRY"
+
+# helm install
+helm install retail-ui oci://"$REGISTRY"/retail-store-sample-ui-chart --version 1.6.3 -f ./retail-store-ui-chart/values-ui.yaml
