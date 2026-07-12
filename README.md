@@ -21,7 +21,7 @@ kubectl rollout restart deploy/ui -n default
 helm test ui
 
 
-aws ecr get-login-password --region "$REGION" | helm registry login -u AWS --password-stdin "$REGISTRY"
+aws ecr-public get-login-password --region "$REGION" | helm registry login -u AWS --password-stdin "$REGISTRY"
 
 aws ecr create-repository --repository-name retail-store-sample-ui-chart --region "$REGION" || true
 
