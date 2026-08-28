@@ -87,6 +87,9 @@ app:
   messaging:
     provider: 'in-memory'
 
+    sqs:
+      queueName: ""
+
     rabbitmq:
       addresses: []
 
