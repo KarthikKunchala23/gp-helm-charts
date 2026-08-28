@@ -78,8 +78,6 @@ app:
     dynamodb:
       tableName: Items
       createTable: false
-      endpoint: ""
-      region: ""
 
 dynamodb:
   create: false
