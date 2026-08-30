@@ -64,10 +64,23 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp-volume
+            {{- if and (eq .Values.app.persistence.provider "mysql") .Values.app.persistence.secret.useSecretsManager }}
+            - name: aws-secrets
+              mountPath: /mnt/secret-store
+              readOnly: true
+            {{- end }}
       volumes:
         - name: tmp-volume
           emptyDir:
             medium: Memory
+        {{- if and (eq .Values.app.persistence.provider "mysql") .Values.app.persistence.secret.useSecretsManager }}
+        - name: aws-secrets
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: {{ include "catalog.fullname" . }}-secrets
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
