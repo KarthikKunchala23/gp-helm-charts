@@ -8,7 +8,7 @@
 image:
   repository: public.ecr.aws/aws-containers/retail-store-sample-catalog
   pullPolicy: IfNotPresent
-  tag: 1.3.0 
+  tag: 1.3.0
 # ----------------------------------------------------------------------------
 # DATABASE CONFIGURATION
 # ----------------------------------------------------------------------------

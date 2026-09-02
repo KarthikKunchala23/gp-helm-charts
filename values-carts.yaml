@@ -2,6 +2,8 @@
 # CART SERVICE - CUSTOM VALUES
 # ============================================================================
 
+fullnameOverride: "carts"
+
 # ----------------------------------------------------------------------------
 # IMAGE CONFIGURATION
 # ----------------------------------------------------------------------------
@@ -20,10 +22,10 @@ app:
   persistence:
     provider: dynamodb
     dynamodb:
-      tableName: carts-dev-dynamodb-table
+      tableName: carts-dev-Items
       createTable: false
-      endpoint: https://dynamodb.ap-south-1.amazonaws.com  # ← NOW SUPPORTED!
-      region: ap-south-1                                    # ← NOW SUPPORTED!
+      endpoint: https://dynamodb.us-west-2.amazonaws.com  # ← NOW SUPPORTED!
+      region: us-west-2                                    # ← NOW SUPPORTED!
 
 # ----------------------------------------------------------------------------
 # RESOURCE MANAGEMENT

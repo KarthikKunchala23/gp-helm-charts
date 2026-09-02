@@ -8,7 +8,7 @@
 image:
   repository: public.ecr.aws/aws-containers/retail-store-sample-ui
   pullPolicy: IfNotPresent
-  tag: 1.3.0
+  tag:
 
 # ----------------------------------------------------------------------------
 # APPLICATION CONFIGURATION
@@ -38,7 +38,8 @@ ingress:
     # External DNS Annotation
     external-dns.alpha.kubernetes.io/hostname: retailstore.cloudlearningtraining.com
   tls: []
-  hosts: []
+  hosts:
+    - retailstore.cloudlearningtraining.com
 
 # ----------------------------------------------------------------------------
 # RESOURCE MANAGEMENT

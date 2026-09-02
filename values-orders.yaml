@@ -9,7 +9,7 @@
 image:
   repository: public.ecr.aws/aws-containers/retail-store-sample-orders
   pullPolicy: IfNotPresent
-  tag: 1.3.0
+  tag:
 
 # ----------------------------------------------------------------------------
 # DATABASE CONFIGURATION - AWS RDS PostgreSQL with Secrets Manager
